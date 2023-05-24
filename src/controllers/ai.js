@@ -15,11 +15,11 @@ export async function askAi(input) {
         const response = await openai.createCompletion({
             model: "text-davinci-003",
             prompt: input,
-            temperature: 0,
-            max_tokens: 100,
+            temperature: 1,
+            max_tokens: 2048,
         });
         const answer = response.data.choices[0].text.trim();
-
+        console.log(answer);
         return answer;
     } catch (error) {
         console.error("OpenAI API error:", error.response.data);
